@@ -1,0 +1,41 @@
+[color]
+  ui = auto
+[core]
+  editor = vim +'set textwidth=60' +'set spell' +'set colorcolumn=61'
+  whitespace = tab-in-indent
+[user]
+  email = akif.oezkan@fau.de
+  name = akifoezkan
+[receive]
+  denyCurrentBranch = ignore
+[alias]
+  update = checkout
+  histedit = rebase --interactive
+  glog = log --all --graph --decorate --format='%C(yellow)commit:    %H%C(auto)%d%Creset%nauthor:    %an %C(bold blue)<%ae>%Creset%ndate:      %ad%Creset%nsummary:   %C(bold)%s%Creset%n'
+  slog = log --all --graph --decorate --simplify-by-decoration --format='%C(yellow)commit:    %H%C(auto)%d%Creset%nauthor:    %an %C(bold blue)<%ae>%Creset%ndate:      %ad%Creset%nsummary:   %C(bold)%s%Creset%n'
+  sblame = blame --date=short -e
+  release-notes = log --no-merges --pretty=\"- %s\"
+
+[difftool "kdiff3"]
+  trustExitCode = false
+[difftool]
+  prompt = false
+[diff]
+  tool = meld
+#  tool = kdiff3
+#  tool = vimdiff
+
+[mergetool "kdiff3"]
+  trustExitCode = false
+[mergetool]
+  keepBackup = false
+[mergetool "mymeld"]
+  cmd = meld --label='local' $LOCAL --label='merge' $BASE --label='other' $REMOTE -o $MERGED --auto-merge
+[merge]
+  tool = mymeld
+#  tool = kdiff3
+#  tool = vimdiff
+  conflictstyle = diff3
+
+[push]
+  default = simple
